@@ -2,6 +2,11 @@
 
 A modern, secure, and user-friendly web application for encrypting and decrypting files using client-side encryption. Built with vanilla web technologies and the Web Crypto API, this tool ensures your files remain secure without ever leaving your browser.
 
+## 🌐 Live Demo
+
+[Click here to view the live project](https://file-encryption-decryption-tool-project-for-micro-it.vercel.app/)
+
+
 ## 📋 Overview
 
 This tool provides a secure way to encrypt and decrypt files directly in your browser. It uses the Web Crypto API's AES-GCM encryption, which is a military-grade encryption standard. All encryption/decryption happens locally, ensuring your files never leave your device.
