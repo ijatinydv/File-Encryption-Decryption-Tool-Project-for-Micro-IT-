@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Encryption Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h1>File Encryption Tool</h1>
+                <p class="subtitle">Secure your files with AES-GCM encryption</p>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Military-Grade Encryption</span>
+                </div>
+            </div>
+
+            <div class="upload-area" id="dropZone">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <div class="upload-pulse"></div>
+                </div>
+                <p>Drag & Drop files here or</p>
+                <label for="fileInput" class="upload-btn">
+                    <i class="fas fa-folder-open"></i> Choose File
+                </label>
+                <input type="file" id="fileInput" hidden>
+                <p class="file-types">Supports all file types</p>
+            </div>
+
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-details">
+                    <i class="fas fa-file"></i>
+                    <div class="file-meta">
+                        <span id="fileName"></span>
+                        <span id="fileSize" class="file-size"></span>
+                    </div>
+                </div>
+                <div class="file-actions">
+                    <button class="action-btn preview-btn" id="previewFile" title="Preview">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="action-btn remove-btn" id="removeFile" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="password-section">
+                <div class="section-header">
+                    <h3>Security Settings</h3>
+                    <div class="password-options">
+                        <button id="generatePassword" class="option-btn" title="Generate Strong Password">
+                            <i class="fas fa-key"></i>
+                        </button>
+                        <button id="savePassword" class="option-btn" title="Save Password">
+                            <i class="fas fa-save"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="password-input">
+                    <input type="password" id="password" placeholder="Enter password">
+                    <i class="fas fa-eye-slash" id="togglePassword"></i>
+                </div>
+                <div class="password-strength-container">
+                    <div class="password-strength" id="passwordStrength"></div>
+                    <span id="strengthText">Password Strength</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="encryptBtn" class="btn encrypt">
+                    <i class="fas fa-lock"></i> Encrypt
+                    <span class="btn-tooltip">Secure your file</span>
+                </button>
+                <button id="decryptBtn" class="btn decrypt">
+                    <i class="fas fa-unlock"></i> Decrypt
+                    <span class="btn-tooltip">Restore your file</span>
+                </button>
+            </div>
+
+            <div class="features-section">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Processing</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification" id="notification">
+            <i class="fas fa-info-circle"></i>
+            <span id="notificationText"></span>
+        </div>
+
+        <!-- Password Generator Modal -->
+        <div class="modal" id="passwordModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Generate Strong Password</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="password-options">
+                        <label>
+                            <input type="checkbox" id="includeUppercase" checked>
+                            Uppercase Letters
+                        </label>
+                        <label>
+                            <input type="checkbox" id="includeLowercase" checked>
+                            Lowercase Letters
+                        </label>
+                        <label>
+                            <input type="checkbox" id="includeNumbers" checked>
+                            Numbers
+                        </label>
+                        <label>
+                            <input type="checkbox" id="includeSymbols" checked>
+                            Special Characters
+                        </label>
+                    </div>
+                    <div class="password-length">
+                        <label for="passwordLength">Length: <span id="lengthValue">16</span></label>
+                        <input type="range" id="passwordLength" min="8" max="32" value="16">
+                    </div>
+                    <div class="generated-password">
+                        <input type="text" id="generatedPassword" readonly>
+                        <button id="copyPassword" class="copy-btn">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <button id="generateNewPassword" class="btn generate">
+                        <i class="fas fa-sync-alt"></i> Generate New
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
